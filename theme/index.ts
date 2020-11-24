@@ -3,14 +3,18 @@ const screenSizes = {
   DESKTOP: 1200,
 };
 
-export const bp = {
+const bp = {
   FROM_TABLET: `@media (min-width: ${screenSizes.TABLET}px)`,
   FROM_DESKTOP: `@media (min-width: ${screenSizes.DESKTOP}px)`,
 };
 
-export const theme = { bp, screenSizes };
+const colors = {
+  JUGNLE_GREEN: "rgb(53, 96, 90)",
+  WASHED_WHITE: "rgb(245, 245, 245)",
+};
 
 export const useTheme = () => ({
   bp,
   screenSizes,
+  colors,
 });
