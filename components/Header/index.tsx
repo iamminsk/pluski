@@ -1,13 +1,18 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
+
+import { useTheme } from "../../theme";
 
 import { BlockWrapper } from "../ui/BlockWrapper";
 import { HamburgerButton } from "../ui/HamburgerButton";
+import { Navigation } from "./Navigation";
 
-export const Header = () => {
-  const [isNavOpen, setIsNavOpen] = useState(false);
+export const Header = ({ navState }) => {
+  const [isNavOpen, setIsNavOpen] = navState;
 
   return (
     <BlockWrapper as="header" wrapperCss={{ paddingTop: 30 }}>
+      <Navigation isOpen={isNavOpen} />
       <div
         css={{
           display: "flex",
@@ -20,7 +25,7 @@ export const Header = () => {
           <g
             id="Lodge"
             stroke="none"
-            stroke-width="1"
+            strokeWidth="1"
             fill="none"
             fill-rule="evenodd"
           >

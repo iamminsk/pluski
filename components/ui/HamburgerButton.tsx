@@ -29,17 +29,15 @@ export const HamburgerButton = ({ onClick, isActive }) => {
       }}
     >
       <motion.div
-        animate={isActive ? { rotate: 45 } : { rotate: 0 }}
+        animate={{ rotate: isActive ? 45 : 0 }}
         style={{ ...divStyles, transformOrigin: 0 }}
       />
       <motion.div
-        animate={
-          isActive ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }
-        }
+        animate={{ opacity: isActive ? 0 : 1, scaleX: isActive ? 0 : 1 }}
         style={divStyles}
       />
       <motion.div
-        animate={isActive ? { rotate: -45 } : { rotate: 0 }}
+        animate={{ rotate: isActive ? -45 : 0 }}
         style={{ ...divStyles, transformOrigin: "5px 4px" }}
       />
     </button>
