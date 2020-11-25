@@ -1,6 +1,11 @@
+import { useState } from "react";
+
 import { BlockWrapper } from "../ui/BlockWrapper";
+import { HamburgerButton } from "../ui/HamburgerButton";
 
 export const Header = () => {
+  const [isNavOpen, setIsNavOpen] = useState(false);
+
   return (
     <BlockWrapper as="header" wrapperCss={{ paddingTop: 30 }}>
       <div
@@ -48,7 +53,12 @@ export const Header = () => {
             </g>
           </g>
         </svg>
-        <p>f</p>
+        <HamburgerButton
+          onClick={() => {
+            setIsNavOpen(!isNavOpen);
+          }}
+          isActive={isNavOpen}
+        />
       </div>
     </BlockWrapper>
   );
