@@ -1,17 +1,34 @@
-import { useState } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { motion } from "framer-motion";
 import { RemoveScroll } from "react-remove-scroll";
 import { useTheme } from "../../theme";
 import { NavigationItem } from "./NavigationItem";
 
-export const Navigation = ({ isOpen }) => {
+export const Navigation = ({ isOpen, setIsNavOpen }) => {
   const { colors, bp } = useTheme();
-
   const [isNavigationHovered, setIsNavigationHovered] = useState(false);
+  const ref = useRef(null);
+
+  const clickListener = useCallback(
+    (event) => {
+      if (!ref.current!.contains(event.target)) {
+        setIsNavOpen(false);
+      }
+    },
+    [ref.current]
+  );
+
+  useEffect(() => {
+    document.addEventListener("click", clickListener);
+    return () => {
+      document.removeEventListener("click", clickListener);
+    };
+  }, []);
 
   return (
     <RemoveScroll enabled={isOpen}>
       <motion.nav
+        ref={ref}
         initial={{ x: "100%", opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         exit={{ x: "100%", opacity: 0 }}

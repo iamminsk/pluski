@@ -16,7 +16,9 @@ export const Header = ({ navState }) => {
       wrapperCss={{ paddingTop: 30, position: "relative" }}
     >
       <AnimatePresence>
-        {isNavOpen && <Navigation isOpen={isNavOpen} />}
+        {isNavOpen && (
+          <Navigation isOpen={isNavOpen} setIsNavOpen={setIsNavOpen} />
+        )}
       </AnimatePresence>
       <div
         css={{
@@ -63,7 +65,6 @@ export const Header = ({ navState }) => {
             </g>
           </g>
         </svg>
-
         <HamburgerButton
           onClick={() => {
             setIsNavOpen(!isNavOpen);

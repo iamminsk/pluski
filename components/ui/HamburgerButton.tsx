@@ -22,7 +22,6 @@ export const HamburgerButton = ({ onClick, isActive, ...rest }) => {
             width: 30,
             height: 20,
             padding: 0,
-            border: "none",
             backgroundColor: "transparent",
             display: "flex",
             flexDirection: "column",
