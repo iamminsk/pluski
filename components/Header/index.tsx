@@ -13,7 +13,7 @@ export const Header = ({ navState }) => {
   return (
     <BlockWrapper
       as="header"
-      wrapperCss={{ paddingTop: 30, position: "relative" }}
+      wrapperCss={{ padding: "30px 0", position: "relative" }}
     >
       <AnimatePresence>
         {isNavOpen && (
