@@ -5,15 +5,17 @@ import { useTheme } from "../../theme";
 import { NavigationItem } from "./NavigationItem";
 
 export const Navigation = ({ isOpen }) => {
-  const { colors } = useTheme();
+  const { colors, bp } = useTheme();
 
   const [isNavigationHovered, setIsNavigationHovered] = useState(false);
 
   return (
     <RemoveScroll enabled={isOpen}>
       <motion.nav
-        animate={{ x: isOpen ? 0 : "100%" }}
-        transition={{ type: "spring", bounce: 0, duration: 0.5 }}
+        initial={{ x: "100%", opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        exit={{ x: "100%", opacity: 0 }}
+        transition={{ type: "tween", duration: 0.5 }}
         css={{
           height: "100vh",
           width: "100vw",
@@ -25,6 +27,9 @@ export const Navigation = ({ isOpen }) => {
           overflow: "scroll",
           display: "flex",
           alignItems: "center",
+          [bp.FROM_DESKTOP]: {
+            width: "350px",
+          },
         }}
       >
         <motion.div

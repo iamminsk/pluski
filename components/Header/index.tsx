@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
 
 import { useTheme } from "../../theme";
 
@@ -11,8 +11,13 @@ export const Header = ({ navState }) => {
   const [isNavOpen, setIsNavOpen] = navState;
 
   return (
-    <BlockWrapper as="header" wrapperCss={{ paddingTop: 30 }}>
-      <Navigation isOpen={isNavOpen} />
+    <BlockWrapper
+      as="header"
+      wrapperCss={{ paddingTop: 30, position: "relative" }}
+    >
+      <AnimatePresence>
+        {isNavOpen && <Navigation isOpen={isNavOpen} />}
+      </AnimatePresence>
       <div
         css={{
           display: "flex",
@@ -58,6 +63,7 @@ export const Header = ({ navState }) => {
             </g>
           </g>
         </svg>
+
         <HamburgerButton
           onClick={() => {
             setIsNavOpen(!isNavOpen);
