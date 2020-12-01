@@ -1,7 +1,5 @@
 import { useState, useCallback } from "react";
 import { useForm } from "react-hook-form";
-import { useForm as useFormspree } from "@formspree/react";
-import { FormspreeProvider } from "@formspree/react";
 import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
 
 import { Button } from "../ui/Button";
