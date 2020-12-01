@@ -5,7 +5,7 @@ import { useTheme } from "../../theme";
 import { NavigationItem } from "./NavigationItem";
 
 export const Navigation = ({ isOpen, setIsNavOpen }) => {
-  const { colors, bp } = useTheme();
+  const { colors, bp, zIndexes } = useTheme();
   const [isNavigationHovered, setIsNavigationHovered] = useState(false);
   const ref = useRef(null);
 
@@ -44,6 +44,7 @@ export const Navigation = ({ isOpen, setIsNavOpen }) => {
           overflow: "scroll",
           display: "flex",
           alignItems: "center",
+          zIndex: zIndexes.LAYER_1,
           [bp.FROM_DESKTOP]: {
             width: "350px",
           },
