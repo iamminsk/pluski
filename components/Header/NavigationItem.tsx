@@ -1,6 +1,16 @@
 import { motion } from "framer-motion";
 
-export const NavigationItem = ({ label, anchorId, isNavigationHovered }) => {
+interface Props {
+  label: string;
+  anchorId: string;
+  isNavigationHovered: boolean;
+}
+
+export const NavigationItem: React.FC<Props> = ({
+  label,
+  anchorId,
+  isNavigationHovered,
+}) => {
   return (
     <li>
       <motion.a

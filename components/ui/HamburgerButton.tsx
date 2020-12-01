@@ -2,7 +2,16 @@ import React from "react";
 import { motion, AnimateSharedLayout } from "framer-motion";
 import { useTheme } from "../../theme";
 
-export const HamburgerButton = ({ onClick, isActive, ...rest }) => {
+interface Props {
+  onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  isActive: boolean;
+}
+
+export const HamburgerButton: React.FC<Props> = ({
+  onClick,
+  isActive,
+  ...rest
+}) => {
   const { colors } = useTheme();
 
   const divStyles = {

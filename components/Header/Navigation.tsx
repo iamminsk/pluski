@@ -4,14 +4,21 @@ import { RemoveScroll } from "react-remove-scroll";
 import { useTheme } from "../../theme";
 import { NavigationItem } from "./NavigationItem";
 
-export const Navigation = ({ isOpen, setIsNavOpen }) => {
+interface Props {
+  isOpen: boolean;
+  setIsNavOpen: (isOpen: boolean) => void;
+}
+
+export const Navigation: React.FC<Props> = ({ isOpen, setIsNavOpen }) => {
   const { colors, bp, zIndexes } = useTheme();
   const [isNavigationHovered, setIsNavigationHovered] = useState(false);
   const ref = useRef(null);
 
   const clickListener = useCallback(
     (event) => {
-      if (!ref.current!.contains(event.target)) {
+      // FIXME
+      // @ts-ignore
+      if (ref && ref.current.contains(event.target)) {
         setIsNavOpen(false);
       }
     },
