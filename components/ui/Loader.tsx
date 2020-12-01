@@ -32,16 +32,16 @@ export const Loader = () => {
   };
 
   const loadingContainer = {
-    width: "8rem",
-    height: "8rem",
+    width: "12rem",
+    height: "12rem",
     display: "flex",
     justifyContent: "space-around",
   };
 
   const loadingCircle = {
     display: "block",
-    width: "2rem",
-    height: "2rem",
+    width: "2.5rem",
+    height: "2.5rem",
     backgroundColor: colors.JUGNLE_GREEN,
     borderRadius: "50%",
   };
