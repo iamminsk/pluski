@@ -13,8 +13,13 @@ const colors = {
   WASHED_WHITE: "rgb(245, 245, 245)",
 };
 
+const zIndexes = {
+  LAYER_1: 100,
+};
+
 export const useTheme = () => ({
   bp,
   screenSizes,
   colors,
+  zIndexes,
 });
