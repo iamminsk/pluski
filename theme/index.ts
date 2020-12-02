@@ -11,6 +11,8 @@ const bp = {
 const colors = {
   JUGNLE_GREEN: "rgb(53, 96, 90)",
   WASHED_WHITE: "rgb(245, 245, 245)",
+  ASH_GRAY: "rgb(74, 74, 74)",
+  SKY_BLUE: "rgb(74, 144, 226)",
 };
 
 const zIndexes = {

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useTheme } from "../../theme";
 
 interface Props {
   label: string;
@@ -11,6 +12,7 @@ export const NavigationItem: React.FC<Props> = ({
   anchorId,
   isNavigationHovered,
 }) => {
+  const { colors } = useTheme();
   return (
     <li>
       <motion.a
@@ -22,6 +24,7 @@ export const NavigationItem: React.FC<Props> = ({
           fontSize: 32,
           padding: "5px 0",
           display: "inline-block",
+          color: colors.ASH_GRAY,
         }}
       >
         {label}
