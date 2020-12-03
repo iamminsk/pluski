@@ -5,7 +5,9 @@ import { ContactBox } from "./ContactBox";
 export const Contact = () => {
   const { colors, bp } = useTheme();
   return (
-    <BlockWrapper wrapperCss={{ padding: "60px 0" }}>
+    <BlockWrapper
+      wrapperCss={{ padding: "60px 0", color: colors.JUGNLE_GREEN }}
+    >
       <h2 css={{ marginBottom: 30 }}>Kontakt</h2>
       <div
         css={{

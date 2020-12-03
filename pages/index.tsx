@@ -6,6 +6,7 @@ import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { Info } from "../components/Info";
 import { ReservationForm } from "../components/ReservationForm";
+import { Surroundings } from "../components/Surroundings";
 
 function HomePage() {
   const navState = useState(false);
@@ -17,6 +18,7 @@ function HomePage() {
         <Billboard />
         <Info />
         <ReservationForm />
+        <Surroundings />
         <Contact />
       </main>
       <Footer />

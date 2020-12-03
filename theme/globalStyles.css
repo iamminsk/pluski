@@ -4,7 +4,7 @@
 *::after {
   font-family: Quicksand, Arial, sans-serif;
   box-sizing: border-box;
-  color: rgb(53, 96, 90);
+  color: inherit;
 }
 
 /* Remove default padding */

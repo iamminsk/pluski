@@ -1,6 +1,8 @@
+import { useTheme } from "../../theme";
 import { BlockWrapper } from "../ui/BlockWrapper";
 
 export const Billboard = () => {
+  const { colors } = useTheme();
   return (
     <BlockWrapper
       css={{
@@ -8,6 +10,7 @@ export const Billboard = () => {
         flexDirection: "column",
         justifyContent: "center",
         minHeight: "60vh",
+        color: colors.JUGNLE_GREEN,
       }}
       wrapperCss={{ padding: "30px 0" }}
     >

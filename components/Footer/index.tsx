@@ -9,15 +9,15 @@ export const Footer = () => {
       as="footer"
       wrapperCss={{
         backgroundColor: colors.ASH_GRAY,
+        color: colors.WASHED_WHITE,
       }}
     >
-      <p css={{ color: colors.WASHED_WHITE }}>
+      <p css={{ fontSize: 14 }}>
         💪 by{" "}
         <motion.a
           href="https://www.linkedin.com/in/adjakubowski/"
           target="_blank"
           whileHover={{ backgroundColor: colors.JUGNLE_GREEN }}
-          css={{ color: colors.WASHED_WHITE }}
         >
           ian miński
         </motion.a>

@@ -38,7 +38,7 @@ export const HamburgerButton: React.FC<Props> = ({
             alignItems: "stretch",
             cursor: "pointer",
           },
-          isActive && { position: "fixed", right: 20, top: 45 },
+          isActive && { position: "fixed", right: 45, top: 45 },
         ]}
         {...rest}
       >

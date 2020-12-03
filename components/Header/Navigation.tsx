@@ -18,7 +18,7 @@ export const Navigation: React.FC<Props> = ({ isOpen, setIsNavOpen }) => {
     (event) => {
       // FIXME
       // @ts-ignore
-      if (ref && ref.current.contains(event.target)) {
+      if (ref && !ref.current.contains(event.target)) {
         setIsNavOpen(false);
       }
     },

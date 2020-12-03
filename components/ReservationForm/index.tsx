@@ -12,9 +12,9 @@ import { Loader } from "../ui/Loader";
 export const ReservationForm = () => {
   const form = useForm();
   const [formState, setFormState] = useState("idle");
+  const { colors } = useTheme();
 
   const { register, handleSubmit } = form;
-  console.log(form);
 
   const onFormSubmit = useCallback(async (data) => {
     setFormState("submitting");
@@ -49,6 +49,7 @@ export const ReservationForm = () => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
+        color: colors.JUGNLE_GREEN,
       }}
       wrapperCss={{ padding: "20px 0", position: "relative" }}
     >

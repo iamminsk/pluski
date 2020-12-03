@@ -25,3 +25,5 @@ export const useTheme = () => ({
   colors,
   zIndexes,
 });
+
+export type Color = keyof typeof colors;
