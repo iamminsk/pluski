@@ -8,6 +8,7 @@ import { Textarea } from "../ui/Textarea";
 import { useTheme } from "../../theme";
 import { BlockWrapper } from "../ui/BlockWrapper";
 import { Loader } from "../ui/Loader";
+import { sendReservation } from "../../api/sendReservation";
 
 export const ReservationForm = () => {
   const form = useForm();
@@ -18,14 +19,7 @@ export const ReservationForm = () => {
 
   const onFormSubmit = useCallback(async (data) => {
     setFormState("submitting");
-    await fetch("https://submit-form.com/wl5DkNLs", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify(data),
-    })
+    await sendReservation(data)
       .then(() => {
         setFormState("submitted");
       })
@@ -81,7 +75,7 @@ export const ReservationForm = () => {
                 label="e-mail"
                 name="email"
                 ref={register({
-                  required: true,
+                  required: false,
                   pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
                 })}
                 wrapperCss={{ marginBottom: 10 }}
@@ -96,7 +90,7 @@ export const ReservationForm = () => {
               <Textarea
                 label="wiadomość"
                 name="message"
-                ref={register({ required: true })}
+                ref={register({ required: false })}
                 css={{ height: 200, marginBottom: 30 }}
               />
               <Button type="submit">Wyślij</Button>
