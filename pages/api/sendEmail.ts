@@ -1,5 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import nodemailer from "nodemailer";
+import handlebars from "handlebars";
+import fs from "fs";
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -11,22 +13,38 @@ const transporter = nodemailer.createTransport({
 });
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const { to, from, subject, template, data } = req.body;
+  const { name, email } = req.body;
 
-  // if (!from || !to || !subject || !template) {
-  //   res.status(403).send("");
-  //   return;
-  // }
+  const confirmationTemplate = handlebars.compile(
+    fs.readFileSync("./public/mailTemplates/confirmation.hbs", "utf-8")
+  );
+  const reservationInfoTemplate = handlebars.compile(
+    fs.readFileSync("./public/mailTemplates/reservationInfo.hbs", "utf-8")
+  );
+
+  console.log(req.headers);
 
   try {
-    const info = await transporter.sendMail({
-      to,
-      from,
-      subject,
-      html: data,
+    const reservationInfo = await transporter.sendMail({
+      to: "minskiam@gmail.com",
+      from: `"${name}" <${email}>`,
+      replyTo: email,
+      subject: `Zapytanie o dostępność domu`,
+      html: reservationInfoTemplate(req.body),
     });
-    res.status(200).send(info);
+    const confirmationInfo = await transporter.sendMail({
+      to: email,
+      from: `"Domek letniskowy Pluski" <domek@letniskowy.com.pl>`,
+      subject: "Dom letniskowy Pluski - potwierdzenie otrzymania zapytania",
+      html: confirmationTemplate(req.body),
+    });
+
+    if (!confirmationInfo.error && !reservationInfo.error) {
+      res.status(200).send("");
+      return;
+    }
   } catch (error) {
     res.status(500).send(error);
+    return;
   }
 };

@@ -1,0 +1,30 @@
+<mjml>
+  <mj-body>
+    <mj-section>
+      <mj-column>
+        <mj-image
+          width="300px"
+          src="https://i.ibb.co/x7r1Zs2/logo.jpg"
+          padding-bottom="40px"
+        ></mj-image>
+        <mj-divider border-color="#4A4A4A"></mj-divider>
+        <mj-text
+          font-size="24px"
+          color="#4A4A4A"
+          font-family="helvetica"
+          padding-top="40px"
+          padding-bottom="30px"
+          >Dzień dobry {{name}},</mj-text
+        >
+        <mj-text font-size="18px" color="#4A4A4A" font-family="helvetica"
+          >Otrzymaliśmy Twoje zapytanie o dostępność domu. Wkrótce na nie
+          odpowiemy.</mj-text
+        >
+
+        <mj-text font-size="18px" color="#4A4A4A" font-family="helvetica"
+          >Pozdrawiamy</mj-text
+        >
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

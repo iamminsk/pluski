@@ -6,6 +6,7 @@ const screenSizes = {
 const bp = {
   FROM_TABLET: `@media (min-width: ${screenSizes.TABLET}px)`,
   FROM_DESKTOP: `@media (min-width: ${screenSizes.DESKTOP}px)`,
+  ONLY_MOBILE: `@media (min-width: 0px) and (max-width:${screenSizes.TABLET}px)`,
 };
 
 const colors = {

@@ -1,20 +1,23 @@
-// @ts-ignore
-export const sendReservation = async (formData) => {
-  try {
-    const response = await fetch("/api/sendEmail", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        to: "minskiam@gmail.com",
-        from: "dsds",
-        data: JSON.stringify(formData),
-      }),
-    });
+interface FormData {
+  name: string;
+  email: string;
+  people: string;
+  message: string;
+}
+
+export const sendReservation = async (formData: FormData) => {
+  const response = await fetch("/api/sendEmail", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(formData),
+  });
+
+  if (response.ok) {
     return response;
-  } catch (error) {
-    return error;
   }
+
+  throw new Error(`http error: ${response.status}`);
 };

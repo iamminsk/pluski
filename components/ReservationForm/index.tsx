@@ -13,13 +13,13 @@ import { sendReservation } from "../../api/sendReservation";
 export const ReservationForm = () => {
   const form = useForm();
   const [formState, setFormState] = useState("idle");
-  const { colors } = useTheme();
+  const { colors, bp } = useTheme();
 
   const { register, handleSubmit } = form;
 
-  const onFormSubmit = useCallback(async (data) => {
+  const onFormSubmit = useCallback((data) => {
     setFormState("submitting");
-    await sendReservation(data)
+    sendReservation(data)
       .then(() => {
         setFormState("submitted");
       })
@@ -50,51 +50,74 @@ export const ReservationForm = () => {
       <AnimatePresence>
         {formState === "idle" && (
           <motion.div key="form" {...animations} css={{ width: "100%" }}>
-            <h2 css={{ alignSelf: "flex-start", marginBottom: 10 }}>
-              Rezerwacja
-            </h2>
-            <p
+            <div
               css={{
-                alignSelf: "flex-start",
-                fontSize: 20,
-                lineHeight: "26px",
-                marginBottom: 30,
+                [bp.FROM_TABLET]: {
+                  display: "flex",
+                },
               }}
             >
-              Odpowiemy na Twoje zapytanie
-              <br /> tak szybko, jak to możliwe.
-            </p>
-            <form onSubmit={handleSubmit(onFormSubmit)}>
-              <Input
-                label="imię"
-                name="name"
-                ref={register}
-                wrapperCss={{ marginBottom: 10 }}
-              />
-              <Input
-                label="e-mail"
-                name="email"
-                ref={register({
-                  required: false,
-                  pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                })}
-                wrapperCss={{ marginBottom: 10 }}
-              />
-              <Input
-                label="liczba gości"
-                name="people"
-                type="number"
-                ref={register}
-                wrapperCss={{ marginBottom: 10 }}
-              />
-              <Textarea
-                label="wiadomość"
-                name="message"
-                ref={register({ required: false })}
-                css={{ height: 200, marginBottom: 30 }}
-              />
-              <Button type="submit">Wyślij</Button>
-            </form>
+              <div
+                css={{
+                  [bp.FROM_TABLET]: {
+                    flexBasis: 500,
+                  },
+                }}
+              >
+                <h2 css={{ alignSelf: "flex-start", marginBottom: 10 }}>
+                  Rezerwacja
+                </h2>
+                <p
+                  css={{
+                    alignSelf: "flex-start",
+                    fontSize: 20,
+                    lineHeight: "26px",
+                    marginBottom: 30,
+                  }}
+                >
+                  Odpowiemy na Twoje zapytanie
+                  <br /> tak szybko, jak to możliwe.
+                </p>
+              </div>
+              <form
+                onSubmit={handleSubmit(onFormSubmit)}
+                css={{
+                  [bp.FROM_TABLET]: {
+                    flexBasis: 600,
+                  },
+                }}
+              >
+                <Input
+                  label="imię"
+                  name="name"
+                  ref={register({ required: true })}
+                  wrapperCss={{ marginBottom: 10 }}
+                />
+                <Input
+                  label="e-mail"
+                  name="email"
+                  ref={register({
+                    required: true,
+                    pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                  })}
+                  wrapperCss={{ marginBottom: 10 }}
+                />
+                <Input
+                  label="liczba gości"
+                  name="people"
+                  type="number"
+                  ref={register}
+                  wrapperCss={{ marginBottom: 10 }}
+                />
+                <Textarea
+                  label="wiadomość"
+                  name="message"
+                  ref={register({ required: true })}
+                  css={{ height: 200, marginBottom: 30 }}
+                />
+                <Button type="submit">Wyślij</Button>
+              </form>
+            </div>
           </motion.div>
         )}
         {formState === "submitting" && (
