@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Billboard } from "../components/Billboard";
 import { Contact } from "../components/Contact";
 import { Footer } from "../components/Footer";
+import { Gallery } from "../components/Gallery";
 import { Header } from "../components/Header";
 import { Info } from "../components/Info";
 import { ReservationForm } from "../components/ReservationForm";
@@ -16,6 +17,7 @@ function HomePage() {
       <Header navState={navState} />
       <main>
         <Billboard />
+        <Gallery />
         <Info />
         <ReservationForm />
         <Surroundings />
