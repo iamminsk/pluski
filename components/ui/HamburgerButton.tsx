@@ -16,7 +16,7 @@ export const HamburgerButton: React.FC<Props> = ({
 
   const divStyles = {
     height: 3,
-    backgroundColor: colors.JUGNLE_GREEN,
+    backgroundColor: isActive ? colors.ASH_GRAY : colors.JUGNLE_GREEN,
   };
 
   return (

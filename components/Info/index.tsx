@@ -25,9 +25,12 @@ export const Info = () => {
           color: colors.WASHED_WHITE,
           marginBottom: 30,
           textAlign: "center",
-          fontSize: 20,
+          fontSize: 18,
           [bp.FROM_TABLET]: {
             flexBasis: "40%",
+            marginBottom: 0,
+            fontSize: 20,
+            lineHeight: "30px",
           },
         }}
       >
@@ -42,6 +45,7 @@ export const Info = () => {
           [bp.FROM_TABLET]: {
             flexBasis: "40%",
             fontSize: 20,
+            lineHeight: "30px",
           },
         }}
       >

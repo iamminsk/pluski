@@ -2,7 +2,8 @@ import { useTheme } from "../../theme";
 import { BlockWrapper } from "../ui/BlockWrapper";
 
 export const Billboard = () => {
-  const { colors } = useTheme();
+  const { colors, bp } = useTheme();
+
   return (
     <BlockWrapper
       css={{
@@ -17,6 +18,10 @@ export const Billboard = () => {
       <h1
         css={{
           marginBottom: 15,
+          [bp.FROM_TABLET]: {
+            fontSize: 80,
+            lineHeight: "85px",
+          },
         }}
       >
         dom letniskowy

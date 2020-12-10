@@ -73,7 +73,7 @@ export const Navigation: React.FC<NavigationProps> = ({
             left: 0,
             top: 0,
             bottom: 0,
-            backgroundColor: colors.JUGNLE_GREEN,
+            backgroundColor: colors.ASH_GRAY,
           }}
         />
         <motion.ul
