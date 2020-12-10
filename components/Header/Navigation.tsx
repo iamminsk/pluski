@@ -4,12 +4,15 @@ import { RemoveScroll } from "react-remove-scroll";
 import { useTheme } from "../../theme";
 import { NavigationItem } from "./NavigationItem";
 
-interface Props {
+interface NavigationProps {
   isOpen: boolean;
   setIsNavOpen: (isOpen: boolean) => void;
 }
 
-export const Navigation: React.FC<Props> = ({ isOpen, setIsNavOpen }) => {
+export const Navigation: React.FC<NavigationProps> = ({
+  isOpen,
+  setIsNavOpen,
+}) => {
   const { colors, bp, zIndexes } = useTheme();
   const [isNavigationHovered, setIsNavigationHovered] = useState(false);
   const ref = useRef(null);
@@ -81,38 +84,42 @@ export const Navigation: React.FC<Props> = ({ isOpen, setIsNavOpen }) => {
             setIsNavigationHovered(false);
           }}
         >
-          <NavigationItem
-            label="dom"
-            anchorId="#cabin"
-            isNavigationHovered={isNavigationHovered}
-          />
-          <NavigationItem
-            label="jezioro"
-            anchorId="#lake"
-            isNavigationHovered={isNavigationHovered}
-          />
-          <NavigationItem
-            label="miejscowość"
-            anchorId="#place"
-            isNavigationHovered={isNavigationHovered}
-          />
-          <NavigationItem
-            label="w okolicy"
-            anchorId="#surroundings"
-            isNavigationHovered={isNavigationHovered}
-          />
-          <NavigationItem
-            label="rezerwacja"
-            anchorId="#reservation"
-            isNavigationHovered={isNavigationHovered}
-          />
-          <NavigationItem
-            label="jak do nas trafić"
-            anchorId="#howtoget"
-            isNavigationHovered={isNavigationHovered}
-          />
+          {navigationAnchors.map((anchor) => (
+            <NavigationItem
+              label={anchor.label}
+              anchorId={anchor.id}
+              isNavigationHovered={isNavigationHovered}
+            />
+          ))}
         </motion.ul>
       </motion.nav>
     </RemoveScroll>
   );
 };
+
+const navigationAnchors = [
+  {
+    id: "cabin",
+    label: "dom",
+  },
+  {
+    id: "lake",
+    label: "jezioro",
+  },
+  {
+    id: "place",
+    label: "miejscowość",
+  },
+  {
+    id: "surroundings",
+    label: "w okolicy",
+  },
+  {
+    id: "reservation",
+    label: "rezerwacja",
+  },
+  {
+    id: "howtoget",
+    label: "jak do nas dotrzeć",
+  },
+];
