@@ -2,7 +2,7 @@ import { BlockWrapper } from "../ui/BlockWrapper";
 import { useTheme } from "../../theme";
 
 export const Info = () => {
-  const { colors } = useTheme();
+  const { colors, bp } = useTheme();
 
   return (
     <BlockWrapper
@@ -10,10 +10,13 @@ export const Info = () => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        minHeight: "60vh",
+        [bp.FROM_TABLET]: {
+          flexDirection: "row",
+          justifyContent: "space-around",
+        },
       }}
       wrapperCss={{
-        padding: "30px 0",
+        padding: "50px 0",
         backgroundColor: colors.JUGNLE_GREEN,
       }}
     >
@@ -22,12 +25,26 @@ export const Info = () => {
           color: colors.WASHED_WHITE,
           marginBottom: 30,
           textAlign: "center",
+          fontSize: 20,
+          [bp.FROM_TABLET]: {
+            flexBasis: "40%",
+          },
         }}
       >
         Zapraszamy do wypoczynku w miejscowości Pluski na Mazurach, w
         całorocznym, drewnianym domu letniskowym.
       </p>
-      <p css={{ color: colors.WASHED_WHITE, textAlign: "center" }}>
+      <p
+        css={{
+          color: colors.WASHED_WHITE,
+          textAlign: "center",
+          fontSize: 18,
+          [bp.FROM_TABLET]: {
+            flexBasis: "40%",
+            fontSize: 20,
+          },
+        }}
+      >
         Dom został oddany do użytku w maju 2010 roku. Został wykonany z
         naturalnego, ekologicznego materiału budowlanego pozwalającego na
         wypoczynek w domu wypełnionym wonią lasu.

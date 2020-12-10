@@ -11,6 +11,7 @@ export const NavigationItem = ({ isActive }: { isActive: boolean }) => {
         width: 10,
         borderRadius: "50%",
         margin: "0 30px",
+        flexShrink: 0,
         backgroundColor: colors.ASH_GRAY,
       }}
     >

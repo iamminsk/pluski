@@ -27,7 +27,7 @@ export const Image = ({ setVisibleImageId, image }: ImageProps) => {
         flexShrink: 0,
         flexBasis: "90vw",
         marginRight: 20,
-        height: "50vw",
+        height: 300,
         position: "relative",
       }}
     >

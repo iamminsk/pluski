@@ -10,6 +10,7 @@ export const Footer = () => {
       wrapperCss={{
         backgroundColor: colors.ASH_GRAY,
         color: colors.WASHED_WHITE,
+        position: "relative",
       }}
     >
       <div
@@ -33,6 +34,15 @@ export const Footer = () => {
           </motion.a>
         </p>
       </div>
+      <div
+        css={{
+          position: "fixed",
+          left: 0,
+          right: 0,
+          height: 50,
+          border: "1px solid red",
+        }}
+      />
     </BlockWrapper>
   );
 };

@@ -17,8 +17,9 @@ function HomePage() {
       <Header navState={navState} />
       <main>
         <Billboard />
-        <Gallery />
         <Info />
+        <Gallery />
+
         <ReservationForm />
         <Surroundings />
         <Contact />

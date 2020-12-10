@@ -11,7 +11,7 @@ export const Surroundings = () => {
       wrapperCss={{
         color: colors.WASHED_WHITE,
         backgroundColor: colors.JUGNLE_GREEN,
-        padding: "60px 0",
+        padding: "40px 0",
       }}
     >
       <h2 css={{ color: colors.WASHED_WHITE, marginBottom: 30 }}>W okolicy</h2>

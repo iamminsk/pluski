@@ -22,6 +22,10 @@ export const Textarea = forwardRef<
           padding: 15,
           fontSize: 16,
           marginTop: 5,
+          borderRadius: 0,
+          WebkitAppearance: "none",
+          MozAppearance: "none",
+          appearance: "none",
         }}
         {...props}
       />
