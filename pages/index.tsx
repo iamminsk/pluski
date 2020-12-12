@@ -6,6 +6,7 @@ import { Footer } from "../components/Footer";
 import { Gallery } from "../components/Gallery";
 import { Header } from "../components/Header";
 import { Info } from "../components/Info";
+import { Map } from "../components/Map";
 import { ReservationForm } from "../components/ReservationForm";
 import { Surroundings } from "../components/Surroundings";
 
@@ -19,7 +20,7 @@ function HomePage() {
         <Billboard />
         <Info />
         <Gallery />
-
+        <Map />
         <ReservationForm />
         <Surroundings />
         <Contact />
