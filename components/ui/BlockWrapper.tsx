@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import { Interpolation, Theme } from "@emotion/react";
 
 interface BlockWrapperProps {
@@ -5,12 +6,14 @@ interface BlockWrapperProps {
   as?: keyof JSX.IntrinsicElements;
 }
 
-export const BlockWrapper: React.FC<
+export const BlockWrapper = forwardRef<
+  HTMLDivElement,
   BlockWrapperProps & JSX.IntrinsicElements["div"]
-> = ({ as: Element = "section", children, wrapperCss, ...rest }) => {
+>(({ as: Element = "section", children, wrapperCss, ...rest }, ref) => {
   return (
     <Element css={wrapperCss}>
       <div
+        ref={ref}
         css={{
           maxWidth: 1240,
           margin: "0 auto",
@@ -23,4 +26,4 @@ export const BlockWrapper: React.FC<
       </div>
     </Element>
   );
-};
+});

@@ -1,6 +1,7 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef } from "react";
 import { useForm } from "react-hook-form";
-import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import scrollIntoView from "smooth-scroll-into-view-if-needed";
 
 import { Button } from "../ui/Button";
 import { Input } from "../ui/Input";
@@ -13,20 +14,32 @@ import { sendReservation } from "../../api/sendReservation";
 export const ReservationForm = () => {
   const form = useForm();
   const [formState, setFormState] = useState("idle");
+  const ref = useRef<HTMLDivElement>(null);
   const { colors, bp } = useTheme();
 
-  const { register, handleSubmit } = form;
+  const { register, handleSubmit, errors } = form;
 
-  const onFormSubmit = useCallback((data) => {
-    setFormState("submitting");
-    sendReservation(data)
-      .then(() => {
-        setFormState("submitted");
-      })
-      .catch(() => {
-        setFormState("error");
-      });
-  }, []);
+  const onFormSubmit = useCallback(
+    (data) => {
+      setFormState("submitting");
+      if (ref.current) {
+        scrollIntoView(ref.current, {
+          behavior: "smooth",
+          block: "center",
+          inline: "center",
+        });
+      }
+
+      sendReservation(data)
+        .then(() => {
+          setFormState("submitted");
+        })
+        .catch(() => {
+          setFormState("error");
+        });
+    },
+    [ref]
+  );
 
   const animations = {
     initial: { opacity: 0 },
@@ -37,6 +50,7 @@ export const ReservationForm = () => {
 
   return (
     <BlockWrapper
+      ref={ref}
       css={{
         minHeight: 800,
         display: "flex",
@@ -90,16 +104,21 @@ export const ReservationForm = () => {
                 <Input
                   label="imię"
                   name="name"
-                  ref={register({ required: true })}
+                  ref={register({ required: "To pole jest wymagane" })}
+                  errorMessage={errors.name?.message}
                   wrapperCss={{ marginBottom: 10 }}
                 />
                 <Input
                   label="e-mail"
                   name="email"
                   ref={register({
-                    required: true,
-                    pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                    required: "To pole jest wymagane",
+                    pattern: {
+                      value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                      message: "Niepoprawny format adresu e-mail",
+                    },
                   })}
+                  errorMessage={errors.email?.message}
                   wrapperCss={{ marginBottom: 10 }}
                 />
                 <Input
@@ -112,10 +131,13 @@ export const ReservationForm = () => {
                 <Textarea
                   label="wiadomość"
                   name="message"
-                  ref={register({ required: true })}
-                  css={{ height: 200, marginBottom: 30 }}
+                  ref={register({ required: "To pole jest wymagane" })}
+                  errorMessage={errors.message?.message}
+                  css={{ height: 200 }}
                 />
-                <Button type="submit">Wyślij</Button>
+                <Button type="submit" css={{ marginTop: 30 }}>
+                  Wyślij
+                </Button>
               </form>
             </div>
           </motion.div>

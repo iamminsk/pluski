@@ -15,13 +15,11 @@ export const Navigation: React.FC<NavigationProps> = ({
 }) => {
   const { colors, bp, zIndexes } = useTheme();
   const [isNavigationHovered, setIsNavigationHovered] = useState(false);
-  const ref = useRef(null);
+  const ref = useRef<HTMLElement>(null);
 
   const clickListener = useCallback(
     (event) => {
-      // FIXME
-      // @ts-ignore
-      if (ref && !ref.current.contains(event.target)) {
+      if (ref && ref.current && !ref.current.contains(event.target)) {
         setIsNavOpen(false);
       }
     },

@@ -14,10 +14,13 @@ const colors = {
   WASHED_WHITE: "#f5f5f5",
   ASH_GRAY: "#4a4a4a",
   SKY_BLUE: "#4a90e2",
+  BRICK_RED: "#a31621",
 };
 
 const zIndexes = {
   LAYER_1: 100,
+  LAYER_2: 200,
+  LAYER_3: 300,
 };
 
 export const useTheme = () => ({
