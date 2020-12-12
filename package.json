@@ -12,7 +12,8 @@
     "react-dom": "^17.0.1",
     "react-hook-form": "^6.12.1",
     "react-intersection-observer": "^8.31.0",
-    "react-remove-scroll": "^2.4.1"
+    "react-remove-scroll": "^2.4.1",
+    "smooth-scroll-into-view-if-needed": "^1.1.29"
   },
   "scripts": {
     "dev": "next dev",

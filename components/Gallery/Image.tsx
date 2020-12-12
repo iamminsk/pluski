@@ -5,7 +5,8 @@ import { useInView } from "react-intersection-observer";
 import { useTheme } from "../../theme";
 
 interface ImageProps {
-  setVisibleImageId: (imageId: string) => void;
+  setVisibleImageIndex: (index: number) => void;
+  index: number;
   image: {
     id: string;
     alt: string;
@@ -13,18 +14,19 @@ interface ImageProps {
   };
 }
 
-export const Image = ({ setVisibleImageId, image }: ImageProps) => {
+export const Image = ({ setVisibleImageIndex, index, image }: ImageProps) => {
   const [ref, inView] = useInView({ threshold: 0.8 });
   const { bp } = useTheme();
 
   useEffect(() => {
     if (inView) {
-      setVisibleImageId(image.id);
+      setVisibleImageIndex(index);
     }
   }, [inView]);
 
   return (
     <div
+      id={image.id}
       ref={ref}
       css={{
         flexShrink: 0,
