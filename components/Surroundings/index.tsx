@@ -26,7 +26,7 @@ export const Surroundings = () => {
         {surroundingsAnchors.map((group) => (
           <ul css={{ [bp.FROM_TABLET]: { flexBasis: "40%" } }}>
             {group.map((anchor) => (
-              <ListItem>
+              <ListItem wrapperCss={{ marginBottom: 8 }}>
                 {anchor.href ? (
                   <Link href={anchor.href}>{anchor.label}</Link>
                 ) : (

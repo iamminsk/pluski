@@ -104,7 +104,7 @@ export const ReservationForm = () => {
                 <Input
                   label="imię"
                   name="name"
-                  ref={register({ required: "To pole jest wymagane" })}
+                  ref={register({ required: "wymagane pole" })}
                   errorMessage={errors.name?.message}
                   wrapperCss={{ marginBottom: 10 }}
                 />
@@ -112,10 +112,10 @@ export const ReservationForm = () => {
                   label="e-mail"
                   name="email"
                   ref={register({
-                    required: "To pole jest wymagane",
+                    required: "wymagane pole",
                     pattern: {
                       value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                      message: "Niepoprawny format adresu e-mail",
+                      message: "niepoprawny format",
                     },
                   })}
                   errorMessage={errors.email?.message}
@@ -131,7 +131,7 @@ export const ReservationForm = () => {
                 <Textarea
                   label="wiadomość"
                   name="message"
-                  ref={register({ required: "To pole jest wymagane" })}
+                  ref={register({ required: "wymagane pole" })}
                   errorMessage={errors.message?.message}
                   css={{ height: 200 }}
                 />

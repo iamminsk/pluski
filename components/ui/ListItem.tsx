@@ -1,9 +1,13 @@
+import { Interpolation, Theme } from "@emotion/react";
 import { useTheme } from "../../theme";
 
-export const ListItem: React.FC = (props) => {
+export const ListItem: React.FC<{ wrapperCss?: Interpolation<Theme> }> = ({
+  wrapperCss,
+  children,
+}) => {
   const { colors } = useTheme();
   return (
-    <li css={{ display: "flex", alignItems: "center" }}>
+    <li css={[{ display: "flex", alignItems: "center" }, wrapperCss]}>
       <div
         css={{
           width: 5,
@@ -13,7 +17,7 @@ export const ListItem: React.FC = (props) => {
           flexShrink: 0,
         }}
       />
-      <span>{props.children}</span>
+      <span css={{ fontSize: 18 }}>{children}</span>
     </li>
   );
 };
