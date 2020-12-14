@@ -4,6 +4,7 @@ import { Billboard } from "../components/Billboard";
 import { Contact } from "../components/Contact";
 import { Footer } from "../components/Footer";
 import { Gallery } from "../components/Gallery";
+import { Cabin } from "../components/Cabin";
 import { Header } from "../components/Header";
 import { Info } from "../components/Info";
 import { Map } from "../components/Map";
@@ -19,6 +20,7 @@ function HomePage() {
       <main>
         <Billboard />
         <Info />
+        <Cabin />
         <Gallery />
         <Map />
         <ReservationForm />
