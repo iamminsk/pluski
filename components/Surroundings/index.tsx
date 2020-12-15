@@ -13,6 +13,7 @@ export const Surroundings = () => {
         backgroundColor: colors.JUGNLE_GREEN,
         padding: "40px 0",
       }}
+      id="surroundings"
     >
       <h2 css={{ color: colors.WASHED_WHITE, marginBottom: 30 }}>W okolicy</h2>
       <div

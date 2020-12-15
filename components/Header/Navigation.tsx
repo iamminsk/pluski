@@ -87,6 +87,7 @@ export const Navigation: React.FC<NavigationProps> = ({
               label={anchor.label}
               anchorId={anchor.id}
               isNavigationHovered={isNavigationHovered}
+              onClick={() => setIsNavOpen(false)}
             />
           ))}
         </motion.ul>

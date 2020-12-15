@@ -6,16 +6,17 @@ export const Cabin = () => {
   const { bp, colors } = useTheme();
   return (
     <BlockWrapper
-      wrapperCss={{ padding: "40px 0", color: colors.JUGNLE_GREEN }}
+      wrapperCss={{ padding: "60px 0", color: colors.JUGNLE_GREEN }}
+      id="cabin"
     >
-      <h2 css={{ marginBottom: 30 }}>Dom</h2>
+      <h2 css={{ marginBottom: 40 }}>Dom</h2>
       <p
         css={{
           fontSize: 18,
-          marginBottom: 30,
+          marginBottom: 40,
           [bp.FROM_TABLET]: {
-            maxWidth: 700,
-            marginBottom: 50,
+            maxWidth: 650,
+            marginBottom: 70,
           },
         }}
       >
@@ -29,7 +30,7 @@ export const Cabin = () => {
         css={{
           fontSize: 18,
           [bp.FROM_TABLET]: {
-            maxWidth: 700,
+            maxWidth: 650,
             marginLeft: "auto",
           },
         }}

@@ -79,7 +79,7 @@ export const Map = () => {
   });
 
   return (
-    <section css={{ padding: "30px 0" }}>
+    <section css={{ padding: "30px 0" }} id="howtoget">
       <BlockWrapper>
         <h2 css={{ color: colors.JUGNLE_GREEN, marginBottom: 20 }}>
           Jak do nas dotrzeć

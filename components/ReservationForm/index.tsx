@@ -60,6 +60,7 @@ export const ReservationForm = () => {
         color: colors.JUGNLE_GREEN,
       }}
       wrapperCss={{ padding: "20px 0", position: "relative" }}
+      id="reservation"
     >
       <AnimatePresence>
         {formState === "idle" && (
